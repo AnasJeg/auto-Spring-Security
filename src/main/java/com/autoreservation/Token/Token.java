@@ -18,13 +18,13 @@ public class Token {
     public String token;
 
     @Enumerated(EnumType.STRING)
-    public TokenType tokenType = TokenType.TEST;
+    public TokenType tokenType = TokenType.BEARER;
 
     public boolean revoked;
 
     public boolean expired;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     public User user;
 }
